@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creaciones García | Ebanistería Técnica en Cali</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --madera-oscura: #5d4037;
+            --crema-fondo: #fcfaf5;
+            --texto-oscuro: #333;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            background-color: var(--crema-fondo);
+            color: var(--texto-oscuro);
+            scroll-behavior: smooth;
+        }
+
+        /* --- Header --- */
+        header {
+            background-image: url('woodskin.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 25px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border-bottom: 4px solid var(--madera-oscura);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center; 
+            gap: 20px;
+        }
+
+        .logo-png {
+            max-width: 240px;
+            height: auto;
+            filter: drop-shadow(1px 1px 3px rgba(0,0,0,0.5));
+        }
+
+        .business-name {
+            font-family: 'Playfair Display', serif;
+            color: white;
+            font-size: 3.4em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        nav { display: flex; gap: 35px; }
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: 400;
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: 0.3s;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        nav a:hover { color: #d1bfa7; }
+
+        /* --- Hero --- */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 40px;
+            gap: 60px;
+        }
+
+        .hero-text { flex: 1.2; }
+        .hero-video { flex: 1; }
+
+        .hero-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            color: var(--madera-oscura);
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .hero-text p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            color: #222;
+            line-height: 1.8;
+        }
+
+        .specialties {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 40px;
+            font-size: 1.3em;
+        }
+
+        .specialties li { margin-bottom: 12px; }
+
+        .btn-quote {
+            background-image: url('woodskin.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 12px;
+            display: inline-block;
+            transition: 0.3s;
+            border: 2px solid var(--madera-oscura);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .btn-quote:hover { filter: brightness(1.2); }
+
+        .video-box video {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        /* --- Galería --- */
+        .gallery-section {
+            background-color: #fff;
+            min-height: 100vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 0;
+        }
+
+        .carousel-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            padding: 20px;
+            max-width: 1200px;
+        }
+
+        .category-card {
+            min-width: 240px;
+            width: 250px;
+            background: #fff;
+            border: 2px solid var(--madera-oscura);
+            border-radius: 10px;
+            flex-shrink: 0;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: 0.4s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .category-card:hover { transform: scale(1.03); }
+        .category-card img { width: 100%; height: 220px; object-fit: cover; }
+
+        .card-content { padding: 25px; text-align: left; }
+        .card-content h3 { font-family: 'Playfair Display', serif; margin-bottom: 15px; font-size: 1.7em; font-weight: 700; color: var(--madera-oscura);}
+        .card-content p { font-size: 1.1em; color: #222; line-height: 1.6; font-weight: 500;}
+
+        /* --- Secciones --- */
+        section { padding: 100px 40px; max-width: 1200px; margin: auto; }
+	.section-title { 
+            font-family: 'Playfair Display', serif; 
+            text-align: center; 
+            font-size: clamp(1.8em, 8vw, 2.8em); /* Tamaño fluido: mínimo 1.8em, máximo 2.8em */
+            margin-bottom: 50px; 
+            color: var(--madera-oscura);
+            padding: 0 20px; /* Evita que el texto toque los bordes en el móvil */
+            line-height: 1.2;
+            word-wrap: break-word; /* Asegura el wrap up si la palabra es muy larga */
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            text-align: center;
+            font-size: 1.2em;    
+        }
+
+	/* --- Lightbox / Carrusel Interactivo --- */
+        #lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            justify-content: center; align-items: center;
+            flex-direction: column;
+        }
+
+        .lightbox-container {
+            position: relative; /* Mantenemos esto */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 90%;
+            max-height: 80vh; /* Ajuste ligero para dar espacio abajo */
+            margin-bottom: 60px; /* Espacio crucial para las flechas fijas */
+        }
+
+        #lightbox img {
+            max-width: 100%;
+            max-height: 80vh;
+            border: 1px solid white;
+            border-radius: 4px;
+            object-fit: contain; /* Asegura que la imagen no se deforme */
+        }
+
+        /* Flechas de Navegación - Ahora fijas en el centro inferior */
+        .nav-arrow {
+            position: absolute;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            font-size: 2.5em; /* Ligeramente más pequeñas para estar juntas */
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 50%;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2010; /* Por encima de la imagen */
+            
+            /* Posicionamiento fijo abajo y centrado */
+            top: auto; /* Cancelamos el centrado vertical previo */
+            bottom: -55px; /* Se posicionan en el espacio creado por el margin-bottom de la caj */
+        }
+
+        .nav-arrow:hover { background: rgba(255,255,255,0.4); }
+
+        /* Alineación lado a lado en el centro */
+        .prev-arrow { 
+            left: calc(50% - 55px); /* Centro menos la mitad del ancho total del par */
+        }
+        .next-arrow { 
+            right: calc(50% - 55px); /* Centro menos la mitad del ancho total del par */
+        }
+
+        /* Botones de acción - Se mantienen igual pero con margen superior ajustado */
+        .lightbox-controls {
+            margin-top: 10px; /* Reducido ya que las flechas ocupan el espacio intermedio */
+            display: flex;
+            gap: 20px;
+        }
+
+
+        .btn-exit, .btn-quote-lightbox {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            text-decoration: none;
+        }
+
+        .btn-exit { background: #e74c3c; color: white; }
+        .btn-quote-lightbox { background: #2ecc71; color: white; background-image: url('woodskin.jpg');}
+	.btn-quote-lightbox:hover { filter: brightness(1.2);}
+
+        footer { 
+            background-image: url('woodskin2.jpg'); 
+            background-size: cover;
+            background-position: center;
+            color: white; 
+            padding: 50px; 
+            text-align: center; 
+            font-size: 1.2em;
+        }
+
+        .slogan {
+            color: rgba(255, 255, 255, 1);
+            font-size: 0.95em;
+            margin: 5px 0 0 0;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+/* --- Ajustes de Responsividad (Móvil) --- */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .business-name { font-size: 2.2em; }
+            .logo-png { max-width: 180px; }
+            
+            nav { 
+                margin-top: 20px;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav a { font-size: 0.8em; }
+
+            .hero-section {
+                flex-direction: column;
+                margin: 40px auto;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .hero-text h2 { font-size: 2em; }
+            .specialties { font-size: 1.1em; text-align: left; display: inline-block; }
+
+            .carousel-container { gap: 15px; }
+            .category-card { width: 100%; max-width: 300px; }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            #about p { font-size: 1.2em; padding: 0 20px; }
+
+            /* Ajustes del Lightbox en móvil */
+            .nav-arrow {
+                width: 45px;
+                height: 45px;
+                font-size: 1.8em;
+                bottom: -50px;
+            }
+            .prev-arrow { left: calc(50% - 50px); }
+            .next-arrow { right: calc(50% - 50px); }
+
+            .btn-exit, .btn-quote-lightbox {
+                padding: 10px 15px;
+                font-size: 0.9em;
+            }
+        }
+/* --- Ajustes de Responsividad (Móvil) --- */
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <div class="logo-box">
+            <img src="logo.png" alt="Creaciones García" class="logo-png">
+            <div class="brand-text">
+                <h1 class="business-name">Creaciones García</h1>
+                <p class="slogan">Donde la ebanistería se encuentra con la ingeniería</p>
+            </div>
+        </div>
+        <nav>
+            <a href="#home">INICIO</a>
+            <a href="#galeria">GALERIA</a>
+            <a href="#about">ACERCA DE NOSOTROS</a>
+            <a href="#contacto">CONTACTANOS</a>
+        </nav>
+    </div>
+</header>
+
+<div id="home" class="hero-section">
+    <div class="hero-text">
+        <h2>Transforma cada rincón en el lugar donde siempre quisiste estar</h2>
+        <p>No solo fabricamos muebles; diseñamos soluciones estructurales para tu hogar y empresa. Desde cocinas de alto tráfico hasta oficinas ergonómicas, aplicamos precisión técnica en cada corte.</p>
+        
+        <p><strong>Nuestras especialidades:</strong></p>
+        <ul class="specialties">
+            <li><strong>Hogar:</strong> Cocinas, Baños, Salas, Dormitorios y Puertas.</li>
+            <li><strong>Profesional:</strong> Oficinas, Archivos y Locales Comerciales.</li>
+        </ul>
+        
+        <a href="#contacto" class="btn-quote">PRESUPUESTO GRATIS</a>
+    </div>
+    <div class="hero-video">
+        <div class="video-box">
+            <video autoplay muted loop>
+                <source src="video.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+</div>
+
+<div id="galeria" class="gallery-section">
+    <h2 class="section-title">Galería de Proyectos</h2>
+    <div class="carousel-container">
+        <div class="category-card" onclick="openGallery('cocinas')">
+            <img src="assets/cocinas/miniatura.jpg" alt="Cocinas">
+            <div class="card-content">
+                <h3>Cocinas</h3>
+                <p>Nuestras cocinas integrales maximizan la eficiencia sin perder el toque artesanal.</p>
+            </div>
+        </div>
+        <div class="category-card" onclick="openGallery('dormitorios')">
+            <img src="assets/dormitorios/miniatura.jpg" alt="Dormitorios">
+            <div class="card-content">
+                <h3>Dormitorios</h3>
+                <p>Creamos ambientes de descanso personalizados, optimizando cada centímetro.</p>
+            </div>
+        </div>
+        <div class="category-card" onclick="openGallery('oficinas')">
+            <img src="assets/oficinas/miniatura.jpg" alt="Oficinas">
+            <div class="card-content">
+                <h3>Oficinas</h3>
+                <p>Soluciones ergonómicas que elevan la imagen de su empresa.</p>
+            </div>
+        </div>
+        <div class="category-card" onclick="openGallery('puertas')">
+            <img src="assets/puertas/miniatura.jpg" alt="Puertas">
+            <div class="card-content">
+                <h3>Puertas</h3>
+                <p>Puertas en madera maciza que brindan seguridad y elegancia.</p>
+            </div>
+        </div>
+        <div class="category-card" onclick="openGallery('archivos')">
+            <img src="assets/archivos/miniatura.jpg" alt="Archivos">
+            <div class="card-content">
+                <h3>Archivos</h3>
+                <p>Sistemas de almacenamiento inteligente y bibliotecas a medida.</p>
+            </div>
+        </div>
+        <div class="category-card" onclick="openGallery('banos')">
+            <img src="assets/banos/miniatura.jpg" alt="Baños">
+            <div class="card-content">
+                <h3>Baños</h3>
+                <p>Muebles resistentes a la humedad con acabados elegantes.</p>
+            </div>
+        </div>
+        <div class="category-card" onclick="openGallery('comercios')">
+            <img src="assets/comercios/miniatura.jpg" alt="Comercios">
+            <div class="card-content">
+                <h3>Comercios</h3>
+                <p>Mobiliario diseñado para resistir el alto tráfico comercial.</p>
+            </div>
+        </div>
+        <div class="category-card" onclick="openGallery('salas')">
+            <img src="assets/salas/miniatura.jpg" alt="Salas">
+            <div class="card-content">
+                <h3>Salas</h3>
+                <p>Centros de entretenimiento que se convierten en el corazón del hogar.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section id="about">
+    <h2 class="section-title">Acerca de Creaciones García</h2>
+    <p style="text-align: center; max-width: 900px; margin: auto; font-size: 1.6em; line-height: 1.8;">
+        Con sede en la ciudad de Cali, somos especialistas en ebanistería de precisión. Nos diferencia nuestra capacidad para entender la necesidad técnica detrás de cada mueble. Ya sea una cocina de alto tráfico o un archivo corporativo, aplicamos los más altos estándares de carpintería estructural.
+    </p>
+</section>
+
+<section id="contacto" style="background: #f7f3e8;">
+    <h2 class="section-title">Contacta con un Especialista</h2>
+    <div class="contact-grid">
+        <div>
+            <h3>Atención Directa</h3>
+            <p>WhatsApp: <strong>320 9739057</strong></p>
+            <a href="https://wa.me/573209739057" style="color: #25D366; font-weight: bold; text-decoration: none; display: flex; align-items: center; justify-content: 		center; gap: 8px;">
+        	<img src="whatsapp-logo.webp" alt="WhatsApp" style="width: 48px; height: 48px;">
+        	Enviar Mensaje
+            </a>
+        </div>
+        <div>
+            <h3>Ubicación Taller</h3>
+            <p>Calle 57 #42c2-22</p>
+	    <p>Barrio Antonio Nariño | Cali, Colombia</p>		
+        </div>
+    </div>
+</section>
+
+<div id="lightbox">
+    <div class="lightbox-container">
+        <button class="nav-arrow prev-arrow" onclick="changeImage(-1)">&#10094;</button>
+        <img id="lightbox-img" src="" alt="Galería">
+        <button class="nav-arrow next-arrow" onclick="changeImage(1)">&#10095;</button>
+    </div>
+    <div class="lightbox-controls">
+        <a href="#contacto" class="btn-quote-lightbox" onclick="closeLightbox()">PRESUPUESTO GRATIS</a>
+        <button class="btn-exit" onclick="closeLightbox()">SALIR</button>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 Creaciones García | Cali, Colombia</p>
+</footer>
+
+<script>
+    let currentFolder = "";
+    let currentIndex = 1;
+
+    function openGallery(folder) {
+        currentFolder = folder;
+        currentIndex = 1;
+        updateLightboxImage();
+        document.getElementById('lightbox').style.display = 'flex';
+    }
+
+    function closeLightbox() {
+        document.getElementById('lightbox').style.display = 'none';
+    }
+
+    function changeImage(step) {
+        currentIndex += step;
+        if (currentIndex < 1) currentIndex = 1; // Evita índices negativos
+        updateLightboxImage(step);
+    }
+
+    function updateLightboxImage(step = 0) {
+        const imgElement = document.getElementById('lightbox-img');
+        const newSrc = `assets/${currentFolder}/img${currentIndex}.jpg`;
+        
+        // Creamos una imagen temporal para verificar si existe
+        const tempImg = new Image();
+        tempImg.onload = function() {
+            imgElement.src = newSrc;
+        };
+        tempImg.onerror = function() {
+            // Si la imagen no existe y estábamos avanzando, volvemos a la 1
+            if (step > 0) {
+                currentIndex = 1;
+                imgElement.src = `assets/${currentFolder}/img1.jpg`;
+            } else if (step < 0) {
+                // Si retrocedíamos y no hay más, nos quedamos en la 1
+                currentIndex = 1;
+                imgElement.src = `assets/${currentFolder}/img1.jpg`;
+            }
+        };
+        tempImg.src = newSrc;
+    }
+</script>
+
+</body>
+</html>

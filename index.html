@@ -94,7 +94,7 @@
         }
 
         .hero-text p {
-            font-size: 1.4em;
+            font-size: 1.5em;
             margin-bottom: 30px;
             color: #222;
             line-height: 1.8;
@@ -104,7 +104,7 @@
             list-style: none;
             padding: 0;
             margin-bottom: 40px;
-            font-size: 1.3em;
+            font-size: 1.4em;
         }
 
         .specialties li { margin-bottom: 12px; }
@@ -179,22 +179,32 @@
         section { padding: 100px 40px; max-width: 1200px; margin: auto; }
 
         #about {
-            padding-top: 30px; /* Esto reduce drásticamente el espacio superior solo en esta sección */
+            padding-top: 30px; 
         }
 
-	#contacto {
-            padding: 40px 40px 60px; /* 40px arriba, 40px lados, 60px abajo */
+	    #contacto {
+            padding: 40px 40px 60px; 
         }
 
-	.section-title { 
+        #about h3 {
+            font-size: 1.8em; 
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+
+        #about p, #about ul li {
+                font-size: 1.5em; 
+        }
+
+        .section-title { 
             font-family: 'Playfair Display', serif; 
             text-align: center; 
-            font-size: clamp(1.8em, 8vw, 2.8em); /* Tamaño fluido: mínimo 1.8em, máximo 2.8em */
+            font-size: clamp(1.8em, 8vw, 2.8em); 
             margin-bottom: 50px; 
             color: var(--madera-oscura);
-            padding: 0 20px; /* Evita que el texto toque los bordes en el móvil */
+            padding: 0 20px; 
             line-height: 1.2;
-            word-wrap: break-word; /* Asegura el wrap up si la palabra es muy larga */
+            word-wrap: break-word; 
         }
 
         .contact-grid {
@@ -205,36 +215,33 @@
             font-size: 1.2em;    
         }
 
-	/* --- Lightbox / Carrusel Interactivo --- */
+	    /* --- Lightbox / Carrusel Interactivo --- */
         #lightbox {
-            display: none;  /* Se activa con JS */
+            display: none;  
             position: fixed;
             z-index: 2000;
             top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.75);
             justify-content: center; align-items: center;
             flex-direction: column;
-
-	/* Efecto inicial: invisible y pequeño */
             opacity: 0;
             transform: scale(0.5);
             transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-	/* Clase para activar la animación */
         #lightbox.active {
             opacity: 1;
             transform: scale(1);
         }
 
         .lightbox-container {
-            position: relative; /* Mantenemos esto */
+            position: relative; 
             display: flex;
             align-items: center;
             justify-content: center;
             max-width: 90%;
-            max-height: 80vh; /* Ajuste ligero para dar espacio abajo */
-            margin-bottom: 60px; /* Espacio crucial para las flechas fijas */
+            max-height: 80vh; 
+            margin-bottom: 60px; 
         }
 
         #lightbox img {
@@ -242,16 +249,15 @@
             max-height: 80vh;
             border: 1px solid white;
             border-radius: 10px;
-            object-fit: contain; /* Asegura que la imagen no se deforme */
+            object-fit: contain; 
         }
 
-        /* Flechas de Navegación - Ahora fijas en el centro inferior */
         .nav-arrow {
             position: absolute;
             background: rgba(255,255,255,0.2);
             color: white;
             border: none;
-            font-size: 2.5em; /* Ligeramente más pequeñas para estar juntas */
+            font-size: 2.5em; 
             width: 50px;
             height: 50px;
             cursor: pointer;
@@ -261,35 +267,25 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 2010; /* Por encima de la imagen */
-            
-            /* Posicionamiento fijo abajo y centrado */
-            top: auto; /* Cancelamos el centrado vertical previo */
-            bottom: -55px; /* Se posicionan en el espacio creado por el margin-bottom de la caj */
+            z-index: 2010; 
+            top: auto; 
+            bottom: -55px; 
         }
 
         .nav-arrow:hover { background: rgba(255,255,255,0.4); }
 
-        /* Alineación lado a lado en el centro */
-        .prev-arrow { 
-            left: calc(50% - 55px); /* Centro menos la mitad del ancho total del par */
-        }
-        .next-arrow { 
-            right: calc(50% - 55px); /* Centro menos la mitad del ancho total del par */
-        }
+        .prev-arrow { left: calc(50% - 55px); }
+        .next-arrow { right: calc(50% - 55px); }
 
-        /* Botones de acción - Se mantienen igual pero con margen superior ajustado */
         .lightbox-controls {
-            margin-top: 10px; /* Reducido ya que las flechas ocupan el espacio intermedio */
+            margin-top: 10px; 
             display: flex;
             gap: 20px;
         }
 
-
-	/* Botones de acción del Lightbox */
         .btn-exit, .btn-quote-lightbox {
             padding: 14px 30px;
-            border-radius: 4px; /* Bordes menos redondeados para un look más serio */
+            border-radius: 4px; 
             font-weight: 600;
             cursor: pointer;
             font-family: 'Montserrat', sans-serif;
@@ -300,14 +296,12 @@
             transition: all 0.3s ease;
         }
 
-        /* Botón Salir: Estilo minimalista en "acero/gris oscuro" */
-	.btn-exit { 
+        .btn-exit { 
             background: #ffffff; 
             color: #333; 
             border: 2px solid #333; 
         }
         
-	/* Efecto hover solo para computadoras */
         @media (min-width: 769px) {
             .btn-exit:hover { 
                 background: #333; 
@@ -315,7 +309,6 @@
             }
         }
 
-        /* Botón Presupuesto: Madera Oscura con borde dorado sutil */
         .btn-quote-lightbox { 
             background-image: url('woodskin.jpg'); 
             background-size: cover;
@@ -351,7 +344,29 @@
             font-family: 'Montserrat', sans-serif;
         }
 
-/* --- Ajustes de Responsividad (Móvil) --- */
+        /* --- BOTÓN VOLVER ARRIBA --- */
+        #backToTop {
+            display: none; 
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 3000;
+            background-image: url('woodskin.jpg');
+            background-size: cover;
+            color: white;
+            border: 2px solid #fff;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 20px;
+            transform: rotate(-90deg);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+
+        #backToTop:hover { filter: brightness(1.2); transform: rotate(-90deg) scale(1.1); }
+
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -390,7 +405,6 @@
 
             #about p { font-size: 1.2em; padding: 0 20px; }
 
-            /* Ajustes del Lightbox en móvil */
             .nav-arrow {
                 width: 45px;
                 height: 45px;
@@ -400,13 +414,23 @@
             .prev-arrow { left: calc(50% - 50px); }
             .next-arrow { right: calc(50% - 50px); }
 
-	    .btn-exit, .btn-quote-lightbox {
-                padding: 12px 20px; /* Ajustado para mejor click con el dedo */
+            .btn-exit, .btn-quote-lightbox {
+                padding: 12px 20px;
                 font-size: 0.8em;
-                width: auto; /* Evita que se estiren demasiado */
+                width: auto;
             }
+
+            #about p, #about ul li {
+                font-size: 1.1em;
+                line-height: 1.6;
+            }
+
+            #about h3 {
+                font-size: 1.3em;
+            }
+
+            #backToTop { bottom: 15px; right: 15px; width: 45px; height: 45px; }
         }
-/* --- Ajustes de Responsividad (Móvil) --- */
 
     </style>
 </head>
@@ -516,7 +540,7 @@
 
 <section id="about">
     <h2 class="section-title">Acerca de Creaciones García</h2>
-    <div style="text-align: left; max-width: 950px; margin: auto; font-size: 1.5em; line-height: 1.8;">
+    <div class="about-content" style="text-align: left; max-width: 1150px; margin: auto; line-height: 1.8;">
         <p>
             Con sede en la ciudad de Cali, somos especialistas en ebanistería de precisión con una trayectoria de más de 30 años de experiencia transformando espacios. Nos diferencia nuestra capacidad para entender la necesidad técnica detrás de cada mueble, combinando el conocimiento tradicional con las exigencias del diseño contemporáneo.
         </p>
@@ -524,7 +548,7 @@
             Para asegurar la durabilidad y el acabado estético de cada pieza, realizamos una selección rigurosa de materiales de la más alta calidad, adaptándonos a los requerimientos específicos de cada proyecto. Ya sea una cocina de alto tráfico o un archivo corporativo, aplicamos los más altos estándares de carpintería estructural para garantizar resultados robustos y funcionales.
         </p>
         
-        <h3 style="font-family: 'Playfair Display', serif; color: var(--madera-oscura); margin-top: 40px;">Compromiso de Entrega y Calidad</h3>
+        <h3 style="font-family: 'Playfair Display', serif; color: var(--madera-oscura);">Compromiso de Entrega y Calidad</h3>
         <p>
             Entendemos que el tiempo de nuestros clientes es su recurso más valioso. Por ello, optimizamos nuestros procesos para ejecutar cada obra con la mayor agilidad posible, sin sacrificar la atención al detalle. Nuestro enfoque se centra en tres pilares fundamentales:
         </p>
@@ -547,7 +571,7 @@
         <div>
             <h3>Atención Directa</h3>
             <p>WhatsApp: <strong>320 9739057</strong></p>
-            <a href="https://wa.me/573209739057?text=Cordial%20saludo.%20He%20visitado%20su%20portafolio%20web%20y%20me%20gustaría%20solicitar%20la%20asesoría%20de%		20un%20especialista%20para%20un%20presupuesto." 
+            <a href="https://wa.me/573209739057?text=Cordial%20saludo.%20He%20visitado%20su%20portafolio%20web%20y%20me%20gustaría%20solicitar%20la%20asesoría%20de%20un%20especialista%20para%20un%20presupuesto." 
 		style="color: #25D366; font-weight: bold; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px;">
 		<img src="whatsapp-logo.webp" alt="WhatsApp" style="width: 48px; height: 48px;">
 		Enviar Mensaje
@@ -574,6 +598,8 @@
     </div>
 </div>
 
+<button onclick="scrollToTop()" id="backToTop" title="Volver arriba">&#10148;</button>
+
 <footer>
     <p>&copy; 2026 Creaciones García | Cali, Colombia</p>
 </footer>
@@ -590,7 +616,6 @@
         const lightbox = document.getElementById('lightbox');
         lightbox.style.display = 'flex';
         
-        // Retraso de 10ms para que el navegador detecte el cambio de display y anime
         setTimeout(() => {
             lightbox.classList.add('active');
         }, 10);
@@ -600,7 +625,6 @@
         const lightbox = document.getElementById('lightbox');
         lightbox.classList.remove('active');
         
-        // Espera a que termine la animación (400ms) antes de ocultar el contenedor
         setTimeout(() => {
             lightbox.style.display = 'none';
             document.getElementById('lightbox-img').src = ""; 
@@ -609,32 +633,53 @@
 
     function changeImage(step) {
         currentIndex += step;
-        if (currentIndex < 1) currentIndex = 1; // Evita índices negativos
+        if (currentIndex < 1) currentIndex = 1; 
         updateLightboxImage(step);
     }
 
     function updateLightboxImage(step = 0) {
         const imgElement = document.getElementById('lightbox-img');
-        const counterElement = document.getElementById('img-counter'); // Nueva línea
+        const counterElement = document.getElementById('img-counter'); 
         const newSrc = `assets/${currentFolder}/img${currentIndex}.jpg`;
         
         const tempImg = new Image();
         tempImg.onload = function() {
             imgElement.src = newSrc;
-            counterElement.innerText = `Imagen ${currentIndex}`; // Nueva línea: actualiza el número
+            counterElement.innerText = `Imagen ${currentIndex}`; 
         };
         tempImg.onerror = function() {
             if (step > 0) {
                 currentIndex = 1;
                 imgElement.src = `assets/${currentFolder}/img1.jpg`;
-                counterElement.innerText = `Imagen 1`; // Nueva línea
+                counterElement.innerText = `Imagen 1`; 
             } else if (step < 0) {
                 currentIndex = 1;
                 imgElement.src = `assets/${currentFolder}/img1.jpg`;
-                counterElement.innerText = `Imagen 1`; // Nueva línea
+                counterElement.innerText = `Imagen 1`; 
             }
         };
         tempImg.src = newSrc;
+    }
+
+    // Lógica Volver Arriba
+    window.onscroll = function() {
+        scrollFunction();
+    };
+
+    function scrollFunction() {
+        const btn = document.getElementById("backToTop");
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            btn.style.display = "block";
+        } else {
+            btn.style.display = "none";
+        }
+    }
+
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     }
 </script>
 
